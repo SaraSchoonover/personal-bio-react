@@ -7,4 +7,5 @@ const signInUser = () => {
 const signOutUser = () => new Promise((resolve, reject) => {
   firebase.auth().signOut().then(resolve).catch(reject);
 });
+
 export { signInUser, signOutUser };
