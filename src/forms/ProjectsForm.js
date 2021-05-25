@@ -51,42 +51,46 @@ const ProjectsForm = ({
      <input
         name='title'
         type='text'
-       placeholder='title'
+       placeholder=''
         value={project.title}
         onChange={handleInputChange}
      >
      </input>
+    <hr></hr>
      <label>Github Url: </label>
      <input
         name='githubUrl'
         type='url'
-        placeholder='githubUrl'
+        placeholder=''
         value={project.githubUrll}
         onChange={handleInputChange}
      ></input>
+
      <label>Screenshot: </label>
      <input
         name='screenshot'
         type='text'
-       placeholder='screenshot'
+       placeholder=''
         value={project.screenshot}
         onChange={handleInputChange}
      >
      </input>
+
      <label>Technologies Used: </label>
      <input
         name='technologiesUsed'
         type='text'
-       placeholder='technologiesUsed'
+       placeholder=''
         value={project.technologiesUsed}
         onChange={handleInputChange}
      >
      </input>
+
      <label>Url: </label>
      <input
         name='url'
         type='text'
-       placeholder='url'
+       placeholder=''
         value={project.url}
         onChange={handleInputChange}
      >
@@ -106,7 +110,7 @@ ProjectsForm.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   firebaseKey: PropTypes.string,
-  setProjects: PropTypes.string
+  setProjects: PropTypes.func
 };
 
 export default ProjectsForm;
