@@ -11,12 +11,14 @@ function Projects({
   url,
   projects,
   setProjects,
+  admin
 }) {
   return (
     <div className="this">
     <hr/>
     <h1>Projects</h1>
        <ProjectsCard
+       admin={admin}
        firebaseKey={firebaseKey}
        githubUrl ={githubUrl}
        screenshot={screenshot}
@@ -38,7 +40,8 @@ Projects.propTypes = {
   title: PropTypes.string,
   url: PropTypes.string,
   projects: PropTypes.array,
-  setProjects: PropTypes.func
+  setProjects: PropTypes.func,
+  admin: PropTypes.any
 };
 
 export default Projects;

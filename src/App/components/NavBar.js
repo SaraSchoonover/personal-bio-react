@@ -19,17 +19,8 @@ const NavBar = ({ admin }) => {
 
   const authenticated = () => (
     <>
-    <NavItem>
-    <Link className="nav-link" id="this" to="/about">About Me</Link>
-  </NavItem>
   <NavItem>
-    <Link className="nav-link" id="that" to="/projects">Projects</Link>
-  </NavItem>
-  <NavItem>
-    <Link className="nav-link" id="who" to="/technologies">Technologies</Link>
-  </NavItem>
-  <NavItem>
-    <Link className="nav-link" id="what" to="/contact">Contact</Link>
+    <Link className="nav-link" id="that" to="/add-project">Add Projects</Link>
   </NavItem>
   </>
   );
@@ -40,6 +31,15 @@ const NavBar = ({ admin }) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+          <NavItem>
+    <Link className="nav-link" id="that" to="/projects">Projects</Link>
+  </NavItem>
+  <NavItem>
+    <Link className="nav-link" id="who" to="/technologies">Technologies</Link>
+  </NavItem>
+  <NavItem>
+    <Link className="nav-link" id="what" to="/contact">Contact</Link>
+  </NavItem>
           {admin && authenticated()}
           <NavItem>
               {

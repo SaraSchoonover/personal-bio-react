@@ -25,6 +25,7 @@ function App() {
     <>
       <NavBar admin={admin} />
       <Routes
+       admin={admin}
        projects={projects}
        setProjects={setProjects}
       />
