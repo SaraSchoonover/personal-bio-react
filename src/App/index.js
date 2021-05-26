@@ -4,6 +4,7 @@ import Routes from '../helpers/Routes';
 import './App.scss';
 import NavBar from './components/NavBar';
 import { getProjects } from '../helpers/data/projectData';
+import '../styles/index.scss';
 
 function App() {
   const [admin, setAdmin] = useState(null);

@@ -53,7 +53,7 @@ export default function Routes({
           url={url}
           setProjects={setProjects}
           projects={projects}
-          admmin={admin}
+          admin={admin}
 
           />}
         />

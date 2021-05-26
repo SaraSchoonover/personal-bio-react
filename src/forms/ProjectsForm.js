@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Container } from 'reactstrap';
 import { addProject, updateProject } from '../helpers/data/projectData';
 
 const ProjectsForm = ({
@@ -40,14 +41,21 @@ const ProjectsForm = ({
 
   return (
     <>
- <div className='project-form'>
+ <Container
+ style={{
+   width: '30rem',
+   flex: 'initial',
+   flexDirection: 'row',
+   flexWrap: 'wrap',
+ }}
+ className='project-form'>
  <form
    id='addProjectForm'
    autoComplete='off'
    onSubmit={handleSubmit}
    >
      <h2>{formTitle}</h2>
-     <label>Project Title: </label>
+     <label> Project Title: </label>
      <input
         name='title'
         type='text'
@@ -56,8 +64,8 @@ const ProjectsForm = ({
         onChange={handleInputChange}
      >
      </input>
-    <hr></hr>
-     <label>Github Url: </label>
+        <hr></hr>
+     <label>Github Url:  </label>
      <input
         name='githubUrl'
         type='url'
@@ -65,17 +73,17 @@ const ProjectsForm = ({
         value={project.githubUrll}
         onChange={handleInputChange}
      ></input>
-
+         <hr></hr>
      <label>Screenshot: </label>
      <input
         name='screenshot'
         type='text'
        placeholder=''
-        value={project.screenshot}
+        value={ project.screenshot}
         onChange={handleInputChange}
      >
      </input>
-
+          <hr></hr>
      <label>Technologies Used: </label>
      <input
         name='technologiesUsed'
@@ -85,7 +93,7 @@ const ProjectsForm = ({
         onChange={handleInputChange}
      >
      </input>
-
+         <hr></hr>
      <label>Url: </label>
      <input
         name='url'
@@ -95,9 +103,10 @@ const ProjectsForm = ({
         onChange={handleInputChange}
      >
      </input>
-     <button type='submit'>Submit</button>
+     <hr></hr>
+     <button style={{ justifyContent: 'center' }} type='submit'>Submit</button>
  </form>
- </div>
+ </Container>
     </>
   );
 };

@@ -26,7 +26,7 @@ const NavBar = ({ admin }) => {
   );
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar style={{ backgroundColor: '#EEA990' }} light expand="md">
         <NavbarBrand href="/">Personal Bio Site</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
