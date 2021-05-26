@@ -5,62 +5,66 @@ import {
   Button,
   CardTitle,
   CardText,
+  CardLink,
   CardBody
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+// import styled from 'styled-components';
 import { deleteProject } from '../../helpers/data/projectData';
 import ProjectsForm from '../../forms/ProjectsForm';
+import netlifyIcon from '../../assets/netlifyIcon.png';
+import githubLogoReal from '../../assets/githubLogo.png';
 
 const ProjectsCard = ({
-  firebaseKey,
   projects,
   setProjects,
-  admin
+  admin,
 }) => {
   const [editing, setEditing] = useState(false);
   // const history = useHistory();
 
-  const handleClick = (type) => {
+  const handleClick = (fbKey, type) => {
     switch (type) {
-      case 'delete':
-        deleteProject(firebaseKey)
-          .then((projectArray) => setProjects(projectArray));
-        break;
       case 'edit':
         setEditing((prevState) => !prevState);
         break;
+      case 'delete':
+        deleteProject(fbKey)
+          .then((projectArray) => setProjects(projectArray));
+        console.warn('im okay');
+        break;
       default:
-        console.warn('nope');
     }
   };
 
-  const editCard = () => (
+  const editCard = (fbKey) => (
     <>
-      <h1>I WORK</h1>
+      <Button onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
+      <Button onClick={() => handleClick(fbKey, 'edit')}>
+      <i className="far fa-edit"></i>
+    {editing ? 'Close Form' : ' Edit'}
+    </Button>
     </>
   );
 
   return (
     projects.map((projectInfo) => (
         <Card
-        key={projectInfo.firebaseKey}
         style={{
-          width: '20rem',
+          width: '23rem',
           flex: 'initial',
           flexDirection: 'row',
           flexWrap: 'wrap',
-        }}>
+        }}
+        key={projectInfo.firebaseKey}
+        >
+          <CardBody>
          <CardTitle tag="h5">Project Name: {projectInfo.title}</CardTitle>
-         <CardText>url: {projectInfo.url}</CardText>
-         <CardText>Github Url: {projectInfo.githubUrl}</CardText>
+         <CardLink target="_blank" href={projectInfo.url}><img src={netlifyIcon} alt="netlify button"/></CardLink>
+         <CardLink target="_blank" href={projectInfo.githubUrl}><img src={githubLogoReal} alt="netlify button"/></CardLink>
          <CardText>Technologies Used: {projectInfo.technologiesUsed}</CardText>
          <img style={{ width: '16rem' }} src={projectInfo.screenshot} className="photo" alt="Card image cap" />
-         <Button style={{ backgroundColor: '#ffa64d' }} onClick={() => handleClick('delete')}>Delete Project</Button>
-      <Button style={{ backgroundColor: '#004d1a' }} onClick={() => handleClick('edit')}>
-    {editing ? 'Close Form' : 'Edit Project'}
-    </Button>
-         <CardBody>
-         { admin && editCard() }
+         { admin && editCard(projectInfo.firebaseKey) }
          {
          editing && <ProjectsForm
          formTitle='Edit Project'
@@ -80,7 +84,7 @@ const ProjectsCard = ({
 };
 
 ProjectsCard.propTypes = {
-  firebaseKey: PropTypes.string,
+  // firebaseKey: PropTypes.string,
   projects: PropTypes.array,
   setProjects: PropTypes.func,
   admin: PropTypes.any
