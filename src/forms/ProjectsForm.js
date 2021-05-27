@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
+import {
+  Button, Form, FormGroup, Input, Label
+} from 'reactstrap';
 import { addProject, updateProject } from '../helpers/data/projectData';
 
 const ProjectsForm = ({
-  formTitle,
   githubUrl,
   screenshot,
+  description,
   technologiesUsed,
   title,
   url,
@@ -17,6 +19,7 @@ const ProjectsForm = ({
   const [project, setProject] = useState({
     githubUrl: githubUrl || '',
     screenshot: screenshot || '',
+    description: description || '',
     technologiesUsed: technologiesUsed || '',
     title: title || '',
     url: url || '',
@@ -41,72 +44,76 @@ const ProjectsForm = ({
 
   return (
     <>
- <Container
- style={{
-   width: '30rem',
-   flex: 'initial',
-   flexDirection: 'row',
-   flexWrap: 'wrap',
- }}
- className='project-form'>
- <form
-   id='addProjectForm'
-   autoComplete='off'
-   onSubmit={handleSubmit}
-   >
-     <h2>{formTitle}</h2>
-     <label> Project Title: </label>
-     <input
-        name='title'
-        type='text'
-       placeholder=''
-        value={project.title}
-        onChange={handleInputChange}
-     >
-     </input>
-        <hr></hr>
-     <label>Github Url:  </label>
-     <input
-        name='githubUrl'
-        type='url'
-        placeholder=''
-        value={project.githubUrll}
-        onChange={handleInputChange}
-     ></input>
-         <hr></hr>
-     <label>Screenshot: </label>
-     <input
-        name='screenshot'
-        type='text'
-       placeholder=''
-        value={ project.screenshot}
-        onChange={handleInputChange}
-     >
-     </input>
-          <hr></hr>
-     <label>Technologies Used: </label>
-     <input
-        name='technologiesUsed'
-        type='text'
-       placeholder=''
-        value={project.technologiesUsed}
-        onChange={handleInputChange}
-     >
-     </input>
-         <hr></hr>
-     <label>Url: </label>
-     <input
-        name='url'
-        type='text'
-       placeholder=''
-        value={project.url}
-        onChange={handleInputChange}
-     >
-     </input>
-     <hr></hr>
-     <button style={{ justifyContent: 'center' }} type='submit'>Submit</button>
- </form>
- </Container>
+    <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
+        <h2>Project Form</h2>
+        <FormGroup>
+          <Label for="title">Title:</Label>
+          <Input
+            name='title'
+            id='title'
+            value={project.title}
+            type='text'
+            placeholder='Enter a Project Title'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="description">Description:</Label>
+          <Input
+            name='description'
+            id='description'
+            value={project.description}
+            type='text'
+            placeholder='Enter a Description'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup>
+        <Label for="screenshot">Screenshot:</Label>
+          <Input
+            name='screenshot'
+            id='screenshot'
+            value={project.screenshot}
+            type='url'
+            placeholder='Enter a Screenshot URL'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup>
+        <Label for="technologiesUsed">Technologies Used:</Label>
+          <Input
+            name='technologiesUsed'
+            id='technologiesUsed'
+            value={project.technologiesUsed}
+            type='text'
+            placeholder='Enter Technologies Used'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup>
+        <Label for="url">Project URL:</Label>
+          <Input
+            name='url'
+            id='url'
+            value={project.url}
+            type='url'
+            placeholder='Enter url'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <FormGroup>
+        <Label for="githubUrl">GitHub URL:</Label>
+          <Input
+            name='githubUrl'
+            id='githubUrl'
+            value={project.githubUrl}
+            type='githubUrl'
+            placeholder='Enter Github Url'
+            onChange={handleInputChange}
+          />
+        </FormGroup>
+        <Button type='submit'>Submit</Button>
+      </Form>
     </>
   );
 };
@@ -115,6 +122,7 @@ ProjectsForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
   githubUrl: PropTypes.string,
   screenshot: PropTypes.string,
+  description: PropTypes.string,
   technologiesUsed: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
