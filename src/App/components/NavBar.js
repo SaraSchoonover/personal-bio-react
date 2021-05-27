@@ -8,9 +8,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  Button
+  Button,
 } from 'reactstrap';
-import { signInUser, signOutUser } from '../../helpers/auth';
+import { signOutUser } from '../../helpers/auth';
 
 const NavBar = ({ admin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +26,16 @@ const NavBar = ({ admin }) => {
   );
   return (
     <div>
-      <Navbar style={{ backgroundColor: '#EEA990' }} light expand="md">
+      <Navbar light expand="md">
         <NavbarBrand href="/">Personal Bio Site</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ml-auto" navbar>
           <NavItem>
     <Link className="nav-link" id="that" to="/projects">Projects</Link>
   </NavItem>
   <NavItem>
     <Link className="nav-link" id="who" to="/technologies">Technologies</Link>
-  </NavItem>
-  <NavItem>
-    <Link className="nav-link" id="what" to="/contact">Contact</Link>
   </NavItem>
           {admin && authenticated()}
           <NavItem>
@@ -47,8 +44,8 @@ const NavBar = ({ admin }) => {
                 && <NavItem>
                   {
                     admin
-                      ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
-                      : <Button color='info' onClick={signInUser}>Sign In</Button>
+                      ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
+                      : ''
                   }
                 </NavItem>
               }

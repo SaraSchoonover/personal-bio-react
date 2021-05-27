@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import Projects from '../views/Projects';
 import Technologies from '../views/Technologies';
-import Contact from '../views/Contact';
 import AddProjects from '../views/AddProjects';
 
 // The PrivateRoute function is creating a private route and returing the specified route based on the props
@@ -63,10 +62,6 @@ export default function Routes({
           component={Technologies}
         />
 
-        <Route
-          path='/contact'
-          component={Contact}
-        />
          <AdminRoute
           path='/add-project'
           admin={admin}

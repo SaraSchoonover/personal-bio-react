@@ -15,20 +15,21 @@ function Projects({
 }) {
   return (
     <div className="this">
-    <hr/>
-    <h1>Projects</h1>
-       <ProjectsCard
-       admin={admin}
-       firebaseKey={firebaseKey}
-       githubUrl ={githubUrl}
-       screenshot={screenshot}
-       technologiesUsed={technologiesUsed}
-       title={title}
-       url={url}
-       setProjects={setProjects}
-       projects={projects}
-       />
-     </div>
+      <h2>Projects</h2>
+      <div className="card-container">
+        <ProjectsCard
+        admin={admin}
+        firebaseKey={firebaseKey}
+        githubUrl ={githubUrl}
+        screenshot={screenshot}
+        technologiesUsed={technologiesUsed}
+        title={title}
+        url={url}
+        setProjects={setProjects}
+        projects={projects}
+        />
+      </div>
+    </div>
   );
 }
 
