@@ -6,8 +6,8 @@ export default function Header() {
   return (
   <div className="bg-image">
           <div className="header-text">
-            <h2>Hi, I'm Sara</h2>
-            <p> TEST TEST TEST </p>
+            <h2>Sara Schoonover</h2>
+            <p></p>
             {/* <Button style={{ backgroundColor: '#ECDDD6', color: 'black' }} >Email Me</Button> */}
           </div>
   </div>

@@ -15,7 +15,7 @@ function Projects({
 }) {
   return (
     <div className="this">
-      <h2>Projects</h2>
+      <h2>Projects: </h2>
       <div className="card-container">
         <ProjectsCard
         admin={admin}
