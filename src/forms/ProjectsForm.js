@@ -43,9 +43,9 @@ const ProjectsForm = ({
   };
 
   return (
-    <>
+    <div className='pForm'>
     <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
-        <h2>Project Form</h2>
+        <h2>Project Form: </h2>
         <FormGroup>
           <Label for="title">Title:</Label>
           <Input
@@ -114,7 +114,7 @@ const ProjectsForm = ({
         </FormGroup>
         <Button type='submit'>Submit</Button>
       </Form>
-    </>
+    </div>
   );
 };
 
